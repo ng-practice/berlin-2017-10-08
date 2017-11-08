@@ -1,3 +1,4 @@
+import { BookModule } from './book/book.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -11,7 +12,8 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    PlaygroundModule
+    PlaygroundModule,
+    BookModule
   ],
   providers: [],
   bootstrap: [AppComponent]
