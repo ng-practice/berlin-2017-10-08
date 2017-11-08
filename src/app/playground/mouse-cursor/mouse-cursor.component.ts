@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'mouse-cursor',
   templateUrl: './mouse-cursor.component.html',
   styleUrls: ['./mouse-cursor.component.css']
 })
-export class MouseCursorComponent implements OnInit {
+export class MouseCursorComponent {
   x = 0;
   y = 0;
 
