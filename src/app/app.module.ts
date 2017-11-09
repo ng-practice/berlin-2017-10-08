@@ -3,6 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { PlaygroundModule } from './playground/playground.module';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { BookModule } from './book/book.module';
@@ -16,7 +17,9 @@ import { BookModule } from './book/book.module';
     HttpClientModule,
 
     PlaygroundModule,
-    BookModule
+    BookModule,
+
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
