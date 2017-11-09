@@ -1,3 +1,4 @@
+import { ConfirmCanDeactivateGuard } from './shared/confirm-can-deactivate.guard';
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 
@@ -13,12 +14,14 @@ const routes: Route[] = [{
     component: BookListComponent
   }, {
     path: ':isbn',
-    component: BookDetailsComponent
+    component: BookDetailsComponent,
+    canDeactivate: [ConfirmCanDeactivateGuard]
   }]
 }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [ConfirmCanDeactivateGuard]
 })
 export class BookRoutingModule {}
