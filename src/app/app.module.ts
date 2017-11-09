@@ -17,8 +17,6 @@ import { BookModule } from './book/book.module';
     HttpClientModule,
 
     PlaygroundModule,
-    BookModule,
-
     AppRoutingModule
   ],
   providers: [],
