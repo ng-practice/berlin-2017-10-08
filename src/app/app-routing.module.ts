@@ -9,14 +9,6 @@ const routes: Route[] = [
     path: '',
     pathMatch: 'full',
     redirectTo: '/books'
-  },
-  {
-    path: 'books',
-    component: BookListComponent
-  },
-  {
-    path: 'book/:isbn',
-    component: BookDetailsComponent
   }
 ];
 
