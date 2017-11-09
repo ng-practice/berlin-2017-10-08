@@ -1,6 +1,5 @@
 import { BookDataService } from '../core/book-data.service';
 import { Component, OnInit } from '@angular/core';
-
 import { Book } from '../models/book';
 
 @Component({
@@ -14,6 +13,8 @@ export class BookListComponent implements OnInit {
   constructor(private bookData: BookDataService) {}
 
   ngOnInit() {
-    this.books = this.bookData.getBooks();
+    this.bookData
+      .getBooks()
+      .subscribe(books => this.books = books);
   }
 }
