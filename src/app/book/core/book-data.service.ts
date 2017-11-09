@@ -4,6 +4,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { Book } from '../models/book';
+import { catchError, map } from 'rxjs/operators';
+
+import { _throw } from 'rxjs/observable/throw';
 
 @Injectable()
 export class BookDataService {
@@ -16,6 +19,19 @@ export class BookDataService {
   }
 
   getBookByIsbn(isbn: string): Observable<Book> {
-    return this.http.get<Book>(`${this.endpoint}/books/${isbn}`);
+    return this.http
+      .get<Book>(`${this.endpoint}/books/${isbn}`)
+      .pipe(
+        map(book => {
+          book.title = book.title + ' MAPPED';
+          return book;
+        }),
+        catchError(err => {
+          // import { _throw } from 'rxjs/observable/throw';
+          return _throw({
+            message: `Book ${isbn} could not be loaded`
+          });
+        })
+      );
   }
 }

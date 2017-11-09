@@ -12,18 +12,19 @@ import { Book } from '../models/book';
 })
 export class BookDetailsComponent implements OnInit {
   book: Book;
+  failure: string;
 
   constructor(
     private route: ActivatedRoute,
     private bookData: BookDataService) { }
 
   ngOnInit() {
-    this.route
-      .params
-      .pipe(
-        map(params => params.isbn),
-        switchMap(isbn => this.bookData.getBookByIsbn(isbn))
-      )
-      .subscribe(book => this.book = book);
+    this.route.params.pipe(
+      map(params => params.isbn),
+      switchMap(isbn => this.bookData.getBookByIsbn(isbn))
+    )
+    .subscribe(
+      book => this.book = book,
+      err => this.failure = err.message);
   }
 }
