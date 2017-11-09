@@ -5,6 +5,7 @@ import { Route, RouterModule } from '@angular/router';
 import { BookDashboardComponent } from './book-dashboard/book-dashboard.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { BookEditComponent } from './book-edit/book-edit.component';
 
 const routes: Route[] = [{
   path: '',
@@ -16,6 +17,9 @@ const routes: Route[] = [{
     path: ':isbn',
     component: BookDetailsComponent,
     canDeactivate: [ConfirmCanDeactivateGuard]
+  }, {
+    path: 'edit/:isbn',
+    component: BookEditComponent,
   }]
 }];
 
