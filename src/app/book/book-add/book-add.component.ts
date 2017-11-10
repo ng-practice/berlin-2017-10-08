@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -14,6 +15,7 @@ export class BookAddComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private router: Router,
     private bookData: BookDataService) { }
 
   ngOnInit() {
@@ -26,6 +28,8 @@ export class BookAddComponent implements OnInit {
   }
 
   createBook() {
-    this.bookData.create(this.bookForm.value).subscribe();
+    this.bookData
+      .create(this.bookForm.value)
+      .subscribe(() => this.router.navigate(['..']));
   }
 }
