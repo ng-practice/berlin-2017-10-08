@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { SharedModule } from '../shared/shared.module';
+
 import {
   BookDashboardComponent,
   BookDetailsComponent,
@@ -11,7 +13,6 @@ import {
   BookAddComponent,
   BookDataService
 } from './index';
-import { HeartPipe } from '../shared/heart.pipe';
 
 
 @NgModule({
@@ -20,9 +21,11 @@ import { HeartPipe } from '../shared/heart.pipe';
     FormsModule,
     ReactiveFormsModule,
 
+    SharedModule,
+
     BookRoutingModule
   ],
-  declarations: [HeartPipe, BookListComponent, BookDetailsComponent, BookDashboardComponent, BookEditComponent, BookAddComponent],
+  declarations: [BookListComponent, BookDetailsComponent, BookDashboardComponent, BookEditComponent, BookAddComponent],
   exports: [BookListComponent],
   providers: [BookDataService]
 })
