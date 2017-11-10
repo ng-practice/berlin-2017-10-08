@@ -11,6 +11,8 @@ import {
   BookAddComponent,
   BookDataService
 } from './index';
+import { HeartPipe } from '../shared/heart.pipe';
+
 
 @NgModule({
   imports: [
@@ -20,7 +22,7 @@ import {
 
     BookRoutingModule
   ],
-  declarations: [BookListComponent, BookDetailsComponent, BookDashboardComponent, BookEditComponent, BookAddComponent],
+  declarations: [HeartPipe, BookListComponent, BookDetailsComponent, BookDashboardComponent, BookEditComponent, BookAddComponent],
   exports: [BookListComponent],
   providers: [BookDataService]
 })
