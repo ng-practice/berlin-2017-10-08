@@ -2,10 +2,13 @@ import { ConfirmCanDeactivateGuard } from './shared/confirm-can-deactivate.guard
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 
-import { BookDashboardComponent } from './book-dashboard/book-dashboard.component';
-import { BookListComponent } from './book-list/book-list.component';
-import { BookDetailsComponent } from './book-details/book-details.component';
-import { BookEditComponent } from './book-edit/book-edit.component';
+import {
+  BookDashboardComponent,
+  BookListComponent,
+  BookDetailsComponent,
+  BookEditComponent,
+  BookAddComponent
+} from './index';
 
 const routes: Route[] = [{
   path: '',
@@ -20,6 +23,9 @@ const routes: Route[] = [{
   }, {
     path: 'edit/:isbn',
     component: BookEditComponent,
+  }, {
+    path: 'add/:isbn',
+    component: BookAddComponent,
   }]
 }];
 
