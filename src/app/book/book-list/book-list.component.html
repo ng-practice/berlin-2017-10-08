@@ -1,6 +1,6 @@
 <h2>Bücher</h2>
 <div
-  *ngFor="let book of books"
+  *ngFor="let book of books$ | async"
   class="card">
   <div class="card-body">
     <h4 class="card-title">{{ book.title }}</h4>
