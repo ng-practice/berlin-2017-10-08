@@ -27,11 +27,14 @@ export class BookDataService {
           return book;
         }),
         catchError(err => {
-          // import { _throw } from 'rxjs/observable/throw';
           return _throw({
             message: `Book ${isbn} could not be loaded`
           });
         })
       );
+  }
+
+  create(book: Book) {
+    return this.http.post(`${this.endpoint}/books`, book);
   }
 }
