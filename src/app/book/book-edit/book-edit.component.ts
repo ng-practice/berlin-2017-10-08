@@ -1,3 +1,4 @@
+import { FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -25,6 +26,13 @@ export class BookEditComponent implements OnInit {
       switchMap(isbn => this.bookData.getBookByIsbn(isbn))
     )
     .subscribe(book => this.book = book);
+  }
+
+  save(form: FormGroup) {
+    console.info(
+      'Book has been changed',
+      form.value
+    );
   }
 
 }
